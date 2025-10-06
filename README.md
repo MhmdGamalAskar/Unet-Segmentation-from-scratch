@@ -18,16 +18,34 @@ The project includes:
 This project was built using the dataset from the [Carvana Image Masking Challenge on Kaggle](https://www.kaggle.com/competitions/carvana-image-masking-challenge).
 
 ---
+## ⚙️ Training Setup & 📊 Evaluation Metrics
 
-## ⚙️ Training Setup
+Due to hardware limitations (Mac M1 Air), the input images were resized from their original resolution to **240×160** during training and inference.  
+Despite the downscaling, the model achieved strong results.
 
-Due to hardware limitations (Mac M1 Air), the images were resized from their original resolution to **240x160** during training and inference.  
-Despite the downscaling, the model achieved strong results:
+### 🔧 Training Details
+- **Model**: U-Net (from scratch using PyTorch)
+- **Input Size**: 240×160
+- **Loss Function**: BCEWithLogitsLoss
+- **Optimizer**: Adam
+- **Augmentations**: Resize, Rotate, Horizontal Flip (using Albumentations)
+- **Hardware**: macOS M1 Air (CPU/MPS)
 
-- **Accuracy:** 99.44%  
-- **Dice Score:** 0.986  
+### 📏 Evaluation Metrics
+During validation, the model was evaluated using:
 
-> 📌 *Note:* You can increase the image size (e.g. 512x512 or original size) for even better performance on higher-end machines.
+- **Pixel Accuracy**: Measures how many pixels were correctly classified overall.
+- **Dice Score**: A metric used for image segmentation:
+`Dice = (2 × |Prediction ∩ GroundTruth|) / (|Prediction| + |GroundTruth|)`
+
+### 📝 Results on Validation Set
+
+| Metric          | Value        |
+|------------------|--------------|
+| Pixel Accuracy   | 99.44%       |
+| Dice Score       | 0.986        |
+
+> 💡 *Note:* You can achieve even better results by training on higher-resolution images (e.g. 512×512) and using a GPU-based environment.
 
 ---
 ## 🖼️ Sample Predictions
