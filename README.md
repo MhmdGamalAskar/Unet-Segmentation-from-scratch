@@ -1,6 +1,5 @@
 # U-Net Segmentation from Scratch 🧠
 ![Python](https://img.shields.io/badge/python-3.9-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
 ![PyTorch](https://img.shields.io/badge/PyTorch-1.13.1-%23EE4C2C?logo=pytorch)
 ![Model](https://img.shields.io/badge/Model-U--Net-brightgreen)
 
